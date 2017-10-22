@@ -2,6 +2,7 @@
   "name": "offline-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://konstantindichev.com/offline",
   "devDependencies": {
     "react-scripts": "1.0.14"
   },
