@@ -1,10 +1,5 @@
-import { createStore, combineReducers } from 'redux'
-import appReducer from './reducers/appReducer'
-
-const rootReducer = combineReducers({
-  appReducer,
-});
-
+import { createStore } from 'redux';
+import rootReducer from './reducers/rootReducer';
 
 export default function configureStore(preloadedState) {
   return createStore(

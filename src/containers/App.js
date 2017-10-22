@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getTopStories } from './services/apiService/NetworkService';
-import CardSection from './components/CardSection';
-import logo from './logo.svg';
-import './styles/App.css';
+import { getTopStories } from './../services/apiService/NetworkService';
+import CardSection from './../components/CardSection';
+import logo from './../logo.svg';
+import './../styles/App.css';
 import moment from 'moment';
 
 export class App extends Component {
