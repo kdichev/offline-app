@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { getTopStories } from './api/NetworkService'
+import CardSection from './components/CardSection'
 import logo from './logo.svg';
 import './App.css';
-import { getTopStories } from './api/NetworkService'
 
 export class App extends Component {
   getDataStories = () => {
     getTopStories()
-      .then(data => {
-        console.log('Data:', data)
+      .then((data) => {
+        console.log(data);
+        const { saveDataStories } = this.props
+        saveDataStories(data.results);
       })
   }
 
@@ -18,7 +21,7 @@ export class App extends Component {
   }
 
   render() {
-    const { onlineState } = this.props
+    const { onlineState, data } = this.props
     return (
       <div className="App">
         <header className="App-header">
@@ -27,22 +30,25 @@ export class App extends Component {
         <p className="App-intro">
           is online App: {`${onlineState}`}
         </p>
+        <CardSection data={data} />
       </div>
     );
   }
 }
 
 function mapStateToProps({reducer}) {
-  const { online } = reducer;
+  const { online, data } = reducer;
   return {
-    onlineState: online
+    onlineState: online,
+    data: data
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     onOnline: () => dispatch({type: 'init'}),
-    closeApp: () => dispatch({type: 'close'})
+    closeApp: () => dispatch({type: 'close'}),
+    saveDataStories: (payload) => dispatch({type: 'save', payload: payload})
   }
 }
 

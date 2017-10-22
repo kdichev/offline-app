@@ -1,5 +1,6 @@
 let appState = {
-  online: false
+  online: false,
+  data: []
 }
 
 function reducer(state = appState, action) {
@@ -15,6 +16,11 @@ function reducer(state = appState, action) {
         ...state,
         online: false
       }
+      case 'save':
+        return {
+          ...state,
+          data: action.payload
+        }
     default:
       return state
   }
