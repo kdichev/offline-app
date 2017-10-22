@@ -1,27 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './styles/index.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
-import { loadState, saveState } from './localStorage'
-import { combineReducers, createStore } from 'redux';
+import registerServiceWorker from './services/serviceWorker/registerServiceWorker';
+import { loadState, saveState } from './services/localStorage/localStorage'
 import { Provider } from 'react-redux';
 //import { BrowserRouter as Router, Route } from 'react-router-dom';
-import reducer from './reducers/reducer';
-
-const appStore = combineReducers({
-  reducer
-});
+import configureStore from './configureStore'
 
 const persistedState = loadState();
 
-let store = createStore(
-  appStore,
-  persistedState,
-  process.env.NODE_ENV === 'development'
-    ? window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-    : undefined
-);
+const store = configureStore(persistedState);
 
 store.subscribe(() => {
   saveState(store.getState());

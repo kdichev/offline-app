@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getTopStories } from './api/NetworkService';
+import { getTopStories } from './services/apiService/NetworkService';
 import CardSection from './components/CardSection';
 import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
 import moment from 'moment';
 
 export class App extends Component {
@@ -37,8 +37,8 @@ export class App extends Component {
   }
 }
 
-function mapStateToProps({reducer}) {
-  const { data, date } = reducer;
+function mapStateToProps({appReducer}) {
+  const { data, date } = appReducer;
   return {
     data: data,
     date: date
