@@ -2,10 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import logo from './logo.svg';
 import './App.css';
+import { getTopStories } from './api/NetworkService'
 
 export class App extends Component {
+  getDataStories = () => {
+    getTopStories()
+      .then(data => {
+        console.log('Data:', data)
+      })
+  }
+
   componentDidMount() {
     this.props.onOnline();
+    this.getDataStories();
   }
 
   render() {
