@@ -17,7 +17,15 @@ const styles = theme => ({
 
 class NewsCard extends Component {
   render() {
-    const { section, title, abstract, classes, byLine, link } = this.props
+    const {
+      section,
+      title,
+      abstract,
+      classes,
+      byLine,
+      link
+    } = this.props;
+
     return (
       <Card className={classes.card}>
         <CardContent>

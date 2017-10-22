@@ -2,12 +2,12 @@
   "name": "offline-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://konstantindichev.com/offline",
   "devDependencies": {
     "react-scripts": "1.0.14"
   },
   "dependencies": {
     "material-ui": "next",
+    "moment": "^2.19.1",
     "node-uuid": "^1.4.8",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
