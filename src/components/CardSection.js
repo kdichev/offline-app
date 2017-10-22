@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 import { withStyles } from 'material-ui/styles';
 import { v4 } from 'node-uuid';
-import NewsCard from './Card'
+import NewsCard from './Card';
 
 const styles = theme => ({
-  card: {
+  container: {
     textAlign: 'initial',
     margin: 10
-  },
-  pos: {
-    marginBottom: 12
   }
 });
 
-
 class CardSection extends Component {
   render() {
-    const { data } = this.props
+    const { data } = this.props;
+    
     return (
-        data.map(item =>
+      <div>
+        {data.map(item =>
           <div key={v4()}>
             <NewsCard
               section={item.section}
@@ -28,7 +26,8 @@ class CardSection extends Component {
               link={item.url}
             />
           </div>
-        )
+        )}
+      </div>
     );
   }
 }

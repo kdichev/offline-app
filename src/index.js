@@ -6,8 +6,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { loadState, saveState } from './localStorage'
 import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-
+//import { BrowserRouter as Router, Route } from 'react-router-dom';
 import reducer from './reducers/reducer';
 
 const appStore = combineReducers({
@@ -26,15 +25,16 @@ let store = createStore(
 
 store.subscribe(() => {
   saveState(store.getState());
-})
+});
 
 ReactDOM.render(
   <Provider store={store}>
-    <Router>
+    {/* <Router>
       <div>
         <Route exact path="/" component={App} />
       </div>
-    </Router>
+    </Router> */}
+      <App />
   </Provider>
   , document.getElementById('root'));
 registerServiceWorker();
